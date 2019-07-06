@@ -11,11 +11,14 @@ class PlayerHole(Hole):
         self.position = position
 
     def sow(self, board, position):
+        rotation = -(-self.num_stone // len(board)) + 1
+        board = board * rotation
         begin = position
         final = begin + self.num_stone
+        self.num_stone = 0
         for hole in board[begin:final]:
             hole.sowed()
-        self.num_stone = 0
+        
  
 class SideHole(Hole):
     def __init__(self, position):
