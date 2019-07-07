@@ -6,14 +6,15 @@ class Hole:
         self.num_stone += 1
 
 class PlayerHole(Hole):
-    def __init__(self, num_stone, position):
+    def __init__(self, num_stone, side, position):
         self.num_stone = num_stone
+        self.side = side
         self.position = position
 
     def sow(self, board, position, num_hole):
         rotation = -(-self.num_stone // len(board)) + 1
         board = board * rotation
-        if(position <= int(num_hole/2)):
+        if(position <= num_hole):
             begin = position
         else:
             begin = position + 1
