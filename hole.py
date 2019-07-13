@@ -14,7 +14,7 @@ class PlayerHole(Hole):
     def sow(self, board, position, num_hole, turn):
         rotation = -(-self.num_stone // len(board)) + 1
         board = board * rotation
-        begin = position if turn=="player" else position+num_hole+1
+        begin = position if turn=="Player" else position+num_hole+1
         final = begin+self.num_stone
         self.num_stone = 0
         for hole in board[begin: final]:
